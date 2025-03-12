@@ -17,7 +17,7 @@ Array<T>::Array(unsigned int n) : _tab(NULL), _size(0) {
         std::cout << "Invalid size, array not created" << std::endl;
         return;
     }
-    _tab = new T[n];
+    _tab = new T[n]();
     _size = n;
     for (unsigned int i = 0; i < _size; i++) {
         _tab[i] = 0;
@@ -33,13 +33,12 @@ Array<T>::Array(Array const &src) {
         _size = 0;
         return;
     }
-    _tab = new T[src._size];
+    _tab = new T[src._size]();
     for (unsigned int i = 0; i < src._size; i++) {
         _tab[i] = src._tab[i];
     }
     _size = src._size;
     std::cout << "Array copy constructor called" << std::endl;
-    *this = src;
 }
 
 template <class T>
